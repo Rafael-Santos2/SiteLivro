@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de um Banana</title>
+    <link rel="shortcut icon" href="img/livro.jpg" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Patrick Hand";
+        }
+
+        body {
+            background-color: #FFF2FC;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: #e1c7db;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #8B3E8C;
+            margin-bottom: 30px;
+            text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: 1.5em;
+            text-shadow: 10px 10px 10px #7e3c7f55;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2A7ABF;
+            transition: 0.5s ease;
+        }
+
+        nav a:hover {
+            color: #F2CB05;
+        }
+
+        .aside1,
+        .aside2 {
+            margin-top: 100px;
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 371%;
+            background: #8B3E8C;
+            border: solid #723273 2px;
+            z-index: 10;
+        }
+
+        .aside1 {
+            left: 0;
+        }
+
+        .aside2 {
+            right: 0;
+        }
+
+        aside img {
+            padding: 5px;
+            margin-top: 10px;
+            margin-left: 10px;
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            opacity: 80%;
+            border: solid 2px #7e3c7f;
+        }
+
+        main {
+            margin-top: 120px;
+            margin-left: 180px;
+            margin-right: 180px;
+            padding-bottom: 50px;
+        }
+
+        main h2 {
+            margin: 15px 0px;
+            color: #8B3E8C;
+            padding-bottom: 5px;
+        }
+
+        .content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .content img {
+            height: 300px;
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .content p {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .section-autor {
+            margin-top: 50px;
+        }
+
+        .content img {
+            width: auto;
+        }
+
+        section {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            justify-content: space-around;
+            width: 75%;
+        }
+
+        h4 {
+            color: #1c87e4;
+        }
+
+        .quadrado {
+            width: 200px;
+            height: auto;
+            background: #e5a0e792;
+            padding: 20px;
+            padding-bottom: 15px;
+            border-radius: 20px;
+            transition: 0.5s;
+            cursor: pointer;
+            box-shadow: 10px 10px 15px rgba(189, 94, 170, 0.3);
+        }
+
+        .quadrado:hover {
+            transform: scale(1.2);
+
+        }
+
+        .quadrado p {
+            margin-top: 10px;
+        }
+
+        .fotinha {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 80%;
+            margin-top: 30%;
+        }
+
+        .fotinha h2 {
+            height: 40px;
+            margin-top: -80px;
+            position: absolute;
+            color: #8B3E8C;
+            font-size: 2.0em;
+        }
+
+        .fotinhas img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            opacity: 80%;
+            transition: 0.3s;
+        }
+
+        .fotinhas img:hover {
+            transform: scale(1.2);
+            opacity: 100%;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        footer {
+            background-color: #e1c7db;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            text-align: center;
+            bottom: 0;
+            opacity: 60%;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            main {
+                margin-top: 140px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .content img {
+                width: 90%;
+                height: auto;
+            }
+
+            .section-autor {
+                margin-top: 40px;
+            }
+
+            section {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+
+            .quadrado {
+                width: 100%;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            /* Esconder os 'aside' em telas menores */
+            .aside1,
+            .aside2 {
+                display: none;
+            }
+
+            /* Ajustes para a seção fotinha */
+            .fotinha {
+                display: none;
+            }
+
+            footer {
+                font-size: 1em;
+                padding: 10px;
+                bottom: 0;
+            }
+        }
+
+        @media (min-width: 360px) and (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            main {
+                margin-top: 120px;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .content img {
+                width: 100%;
+                height: auto;
+            }
+
+            section {
+                flex-direction: column;
+                align-items: center;
+                width: 95%;
+                margin: 0 auto;
+                margin-top: 15px;
+            }
+
+            .quadrado {
+                width: 90%;
+                margin-bottom: 15px;
+            }
+
+            /* Esconder os 'aside' em telas menores */
+            .aside1,
+            .aside2 {
+                display: none;
+            }
+
+            /* Ajustes para a seção fotinha */
+            .fotinha {
+                margin-top: 10%;
+            }
+
+            .fotinhas img {
+                width: 80%;
+                max-width: 180px;
+                height: auto;
+            }
+
+            footer {
+                font-size: 0.9em;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Diário de um Banana</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre o Livro</a></li>
+                <li><a href="#autor">Sobre o Autor</a></li>
+                <li><a href="#titulos">Títulos semelhantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="aside1">
+            <img src="img/cena1.jpg" alt="cena1">
+            <img src="img/cena2.jpg" alt="cena2">
+            <img src="img/cena3.jpeg" alt="cena3">
+            <img src="img/cena4.jpg" alt="cena4">
+            <img src="img/cena5.jpg" alt="cena5">
+            <img src="img/cena1.jpg" alt="cena1">
+            <img src="img/cena2.jpg" alt="cena2">
+            <img src="img/cena3.jpeg" alt="cena3">
+            <img src="img/cena4.jpg" alt="cena4">
+            <img src="img/cena5.jpg" alt="cena5">
+            <img src="img/cena1.jpg" alt="cena1">
+            <img src="img/cena2.jpg" alt="cena2">
+            <img src="img/cena3.jpeg" alt="cena3">
+            <img src="img/cena4.jpg" alt="cena4">
+            <img src="img/cena5.jpg" alt="cena5">
+        </aside>
+
+        <main>
+            <h2 id="sobre">Sobre o Livro</h2>
+            <div class="content">
+                <a href="https://www.amazon.com.br/Di%C3%A1rio-Banana-Verdade-Nua-Crua/dp/8576833077" target="_blank">
+                    <img src="img/livro.jpg" alt="capa do livro">
+                </a>
+                <p>"Diário de um Banana: A Verdade Nua e Crua" é o quinto livro da famosa série Diário de um Banana,
+                    escrita e ilustrada por Jeff Kinney. Publicado originalmente em 2010, a obra continua acompanhando
+                    as aventuras e desafios de Greg Heffley, um garoto que narra sua vida escolar e familiar de forma
+                    bem-humorada e cheia de situações constrangedoras. Neste volume, Greg enfrenta uma nova fase da
+                    adolescência, lidando com mudanças físicas, sociais e emocionais. Enquanto tenta entender seu
+                    lugar no mundo e manter sua popularidade, ele se vê envolvido em situações embaraçosas e hilárias.
+                    Como sempre, o humor e as ilustrações características do autor fazem deste livro uma leitura leve e
+                    divertida, ideal para fãs da série e novos leitores.</p>
+            </div>
+
+            <h2>Sinopse</h2>
+            <div class="content">
+                <img src="img/sinopse.jpg" alt="sinopse">
+                <p>Greg Heffley sempre quis crescer logo, acreditando que a vida dos mais velhos seria cheia de
+                    liberdade e diversão. No entanto, à medida que o tempo passa, ele percebe que amadurecer não é tão
+                    simples quanto imaginava. De repente, Greg começa a lidar com as pressões das festas de meninos e
+                    meninas, com as novas responsabilidades que seus pais esperam que ele assuma e, é claro, com as
+                    mudanças embaraçosas que acompanham o crescimento, como o temido baile da escola e a confusão dos
+                    primeiros relacionamentos. Entre desafios inesperados, momentos hilários e situações
+                    constrangedoras, Greg precisa encontrar uma maneira de sobreviver a essa nova fase da vida – e
+                    talvez até descobrir que crescer não é tão ruim assim.</p>
+            </div>
+
+            <h2 id="autor" class="section-autor">Sobre o Autor</h2>
+            <div class="content autor">
+                <img src="img/autor.jpg" alt="autor">
+                <p>Jeff Kinney é um autor e cartunista americano, conhecido mundialmente pela série Diário de um
+                    Banana. Além de escritor, ele também é desenvolvedor de jogos online e criador do site Poptropica.
+                    Sua série de livros conquistou milhões de leitores ao redor do mundo, tornando-se um fenômeno
+                    cultural entre crianças e adolescentes.</p>
+            </div>
+        </main>
+
+        <section class="quadrinhos">
+            <div class="quadrado">
+                <h4>Sobre</h4>
+                <p>O primeiro Diário de um Banana foi lançado em 2007. A série já vendeu mais de 250 milhões de cópias e
+                    continua conquistando leitores no mundo todo.</p>
+            </div>
+            <div class="quadrado">
+                <h4>Titulos</h4>
+                <p>O primeiro Diário de um Banana foi lançado em 2007. A série já vendeu mais de 250 milhões de cópias e
+                    continua conquistando leitores no mundo todo.</p>
+            </div>
+            <div class="quadrado">
+                <h4>Filmes</h4>
+                <p>Os livros viraram filmes, começando em 2010. Em 2021, a Disney lançou uma versão animada no Disney+,
+                    com Jeff Kinney envolvido na produção.</p>
+            </div>
+            <div class="quadrado">
+                <h4>Prêmios</h4>
+                <p>Kinney foi eleito uma das 100 pessoas mais influentes pela Time e ganhou prêmios como o Nickelodeon
+                    Kids' Choice Awards pelo sucesso de seus livros.</p>
+            </div>
+        </section>
+        <section id="titulos" class="fotinha">
+            <h2>Titulos Semelhantes</h2>
+            <div class="fotinhas">
+                <a href="https://www.amazon.com.br/Diary-Wimpy-Kid-Book-1/dp/0141324902" target="_blank">
+                    <img src="img/livro2.jpg" alt="livro2">
+                </a>
+            </div>
+            <div class="fotinhas">
+                <a href="https://www.amazon.com.br/Di%C3%A1rio-Um-Banana-Rodrick-Cara/dp/8576831953" target="_blank">
+                    <img src="img/livro3.jpg" alt="livro3">
+                </a>
+            </div>
+            <div class="fotinhas">
+                <a href="https://www.amazon.com.br/Di%C3%A1rio-Banana-Dias-Jeff-Kinney/dp/8576832763" target="_blank">
+                    <img src="img/livro4.jpg" alt="livro4">
+                </a>
+            </div>
+            <div class="fotinhas">
+                <a href="https://www.amazon.com.br/Di%C3%A1rio-Banana-Casa-dos-Horrores/dp/8576833689" target="_blank">
+                    <img src="img/livro5.jpg" alt="livro5">
+                </a>
+            </div>
+            <div class="fotinhas">
+                <a href="https://www.amazon.com.br/Di%C3%A1rio-Um-Banana-Mar%C3%A9-Azar/dp/8576836904" target="_blank">
+                    <img src="img/livro6.jpg" alt="livro6">
+                </a>
+            </div>
+            <div class="fotinhas">
+                <a href="https://www.amazon.com.br/Di%C3%A1rio-Um-Banana-Bons-Tempos/dp/8576839423" target="_blank">
+                    <img src="img/livro7.jpg" alt="livro7">
+                </a>
+            </div>
+        </section>
+        <aside class="aside2">
+            <img src="img/capa6.jpg" alt="cena6">
+            <img src="img/cena7.jpg" alt="cena7">
+            <img src="img/cena8.jpg" alt="cena8">
+            <img src="img/cena9.jpg" alt="cena9">
+            <img src="img/cena10.jpg" alt="cena10">
+            <img src="img/capa6.jpg" alt="cena6">
+            <img src="img/cena7.jpg" alt="cena7">
+            <img src="img/cena8.jpg" alt="cena8">
+            <img src="img/cena9.jpg" alt="cena9">
+            <img src="img/cena10.jpg" alt="cena10">
+            <img src="img/capa6.jpg" alt="cena6">
+            <img src="img/cena7.jpg" alt="cena7">
+            <img src="img/cena8.jpg" alt="cena8">
+            <img src="img/cena9.jpg" alt="cena9">
+            <img src="img/cena10.jpg" alt="cena10">
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; Direitos Reservados por Rafael Araujo</p>
+    </footer>
+</body>
+
+</html>
