@@ -1,0 +1,106 @@
+@keyframes mexer {
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&display=swap');
+
+* {
+    font-family: "Patrick Hand";
+}
+
+.item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: var(--background);
+}
+
+.item.ativo {
+    display: block;
+}
+
+.item.ativo img.fruta {
+    animation: mexer 0.5s ease-in-out;
+}
+
+.item .titulo {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    /* Centralizar */
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    margin-top: 40px;
+    line-height: 1.5;
+}
+
+.item .titulo {
+    animation: mexer 0.5s ease-in-out;
+}
+
+.item .fruta {
+    width: 90%;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+.item .refri {
+    /* Centralizar */
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    z-index: 2;
+    height: 450px;
+    width: auto;
+    margin-top: 40px;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 3em;
+    text-align: center;
+    color: #a50707;
+    text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
+}
+
+.item.ativo img.refri {
+    animation: mexer 0.7s ease-in-out;
+}
+
+#anterior,
+#proximo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #eee9;
+    border: 1px solid #eee9;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 4;
+    border-radius: 50%;
+}
+
+#anterior {
+    left: 30px;
+}
+
+#proximo {
+    right: 30px;
+}
