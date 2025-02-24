@@ -1,3 +1,5 @@
+/* Animações 👇 */
+
 @keyframes mexer {
     from {
         top: 100%;
@@ -5,12 +7,39 @@
     }
 }
 
+@keyframes entrar {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sair {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+/* fim das animações ☝️ */
+
+/* Fonte caso queira, pode usar a sua do seu site 👇 */
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&display=swap');
 
 * {
     font-family: "Patrick Hand";
 }
 
+/* inicio da parte do site 👇 */
 .item {
     display: none;
     width: 100%;
@@ -20,14 +49,25 @@
     left: 0;
     overflow: hidden;
     background-color: var(--background);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.item.ativo {
+    opacity: 1;
+    animation: entrar 0.5s forwards;
+}
+
+.item.sair {
+    animation: sair 0.5s forwards;
+}
+
+.item {
+    display: none;
 }
 
 .item.ativo {
     display: block;
-}
-
-.item.ativo img.fruta {
-    animation: mexer 0.5s ease-in-out;
 }
 
 .item .titulo {
@@ -35,7 +75,6 @@
     color: #ffffff;
     font-weight: bold;
     text-align: center;
-    /* Centralizar */
     position: absolute;
     top: 50%;
     left: 65%;
@@ -48,20 +87,11 @@
     animation: mexer 0.5s ease-in-out;
 }
 
-.item .fruta {
-    width: 90%;
-    position: absolute;
-    top: 0;
-    z-index: 3;
-}
-
-.item .refri {
-    /* Centralizar */
+.item .livro {
     position: absolute;
     top: 50%;
     left: 30%;
     transform: translate(-50%, -50%);
-    width: 600px;
     z-index: 2;
     height: 450px;
     width: auto;
@@ -72,11 +102,16 @@ h1 {
     margin-top: 10px;
     font-size: 3em;
     text-align: center;
+    /* cor do TITULO 👇 */
     color: #a50707;
-    text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
+    /* cor da borda do titulo 👇 */
+    text-shadow: 2px 2px 0px #fff,
+        -2px -2px 0px #fff,
+        2px -2px 0px #fff,
+        -2px 2px 0px #fff;
 }
 
-.item.ativo img.refri {
+.item.ativo img.livro {
     animation: mexer 0.7s ease-in-out;
 }
 
@@ -87,7 +122,7 @@ h1 {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background-color: #eee9;
+    background-color: rgba(0, 0, 0, 0.304);
     border: 1px solid #eee9;
     color: #eee;
     font-size: x-large;
@@ -103,4 +138,48 @@ h1 {
 
 #proximo {
     right: 30px;
+}
+
+@media (min-width: 300px) and (max-width: 480px) {
+    .item.ativo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    h1 {
+        font-size: 2em;
+        padding: 20px;
+    }
+
+    .item img.livro {
+        position: absolute;
+        margin-top: -150px;
+        left: 50%;
+        height: 400px;
+    }
+
+    .item .titulo {
+        position: relative;
+        margin-top: 600px;
+        width: 100%;
+        margin-right: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .item .livro {
+        position: absolute;
+        top: 49%;
+        height: 400px;
+        width: auto;
+        padding: 40px;
+    }
+
+    .item .titulo {
+        font-size: 1.2em;
+        margin-left: 30px;
+    }
 }
